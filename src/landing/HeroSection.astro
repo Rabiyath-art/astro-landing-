@@ -1,0 +1,126 @@
+---
+import CryptoImage from "../assets/images/landing/bitcoin-header-image.webp";
+import BitcoinImage from "../assets/images/landing/bitcoin-g1.webp";
+import BitcoinChImage from "../assets/images/landing/bitcoin-g2.webp";
+import DogeCoin from "../assets/images/landing/dogecoin-g3.webp";
+import KaspaImage from "../assets/images/landing/kaspa-g4.webp";
+import LiteCoinImage from "../assets/images/landing/litecoin-g5.webp";
+import MoneroCoinImage from "../assets/images/landing/monerocoin-g6.webp";
+import EthereumCashImage from "../assets/images/landing/ethereumcash-g7.webp";
+import RavenCoinImage from "../assets/images/landing/ravencoin-g8.webp";
+import GradientBall from "./../components/GradientBall.astro";
+---
+
+<section class="hero-section relative pt-[200px] pb-[64px] overflow-hidden">
+    <section class="absolute -left-5">
+        <GradientBall />
+    </section>
+    <div class="container max-w-[1400px] mx-auto px-4 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="text-[#03363d]" data-aos="fade-right">
+                <div
+                    class="inline-flex items-center bg-[#03363d] gap-2 rounded-md ps-3 pe-3 pt-1 pb-1 mb-3"
+                >
+                    <img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48bWFzayBpZD0iU1ZHYjBUVU5idnkiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLWRhc2hhcnJheT0iNTYiIHN0cm9rZS1kYXNob2Zmc2V0PSI1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik01IDE5djBjLTAuMyAwIC0wLjU5IC0wLjE1IC0wLjc0IC0wLjQxYy0wLjggLTEuMzQgLTEuMjYgLTIuOTEgLTEuMjYgLTQuNTljMCAtNC45NyA0LjAzIC05IDkgLTljNC45NyAwIDkgNC4wMyA5IDljMCAxLjY4IC0wLjQ2IDMuMjUgLTEuMjYgNC41OWMtMC4xNSAwLjI2IC0wLjQ0IDAuNDEgLTAuNzQgMC40MVoiPjxhbmltYXRlIGZpbGw9ImZyZWV6ZSIgYXR0cmlidXRlTmFtZT0ic3Ryb2tlLWRhc2hvZmZzZXQiIGR1cj0iMC42cyIgdmFsdWVzPSI1NjswIi8+PC9wYXRoPjxnIHRyYW5zZm9ybT0icm90YXRlKC0xMDAgMTIgMTQpIj48cGF0aCBkPSJNMTIgMTRDMTIgMTQgMTIgMTQgMTIgMTRDMTIgMTQgMTIgMTQgMTIgMTRDMTIgMTQgMTIgMTQgMTIgMTRDMTIgMTQgMTIgMTQgMTIgMTRaIj48YW5pbWF0ZSBmaWxsPSJmcmVlemUiIGF0dHJpYnV0ZU5hbWU9ImQiIGJlZ2luPSIwLjRzIiBkdXI9IjAuMnMiIHZhbHVlcz0iTTEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0WjtNMTYgMTRDMTYgMTYuMjEgMTQuMjEgMTggMTIgMThDOS43OSAxOCA4IDE2LjIxIDggMTRDOCAxMS43OSAxMiAwIDEyIDBDMTIgMCAxNiAxMS43OSAxNiAxNFoiLz48L3BhdGg+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0QzEyIDE0IDEyIDE0IDEyIDE0WiI+PGFuaW1hdGUgZmlsbD0iZnJlZXplIiBhdHRyaWJ1dGVOYW1lPSJkIiBiZWdpbj0iMC40cyIgZHVyPSIwLjJzIiB2YWx1ZXM9Ik0xMiAxNEMxMiAxNCAxMiAxNCAxMiAxNEMxMiAxNCAxMiAxNCAxMiAxNEMxMiAxNCAxMiAxNCAxMiAxNEMxMiAxNCAxMiAxNCAxMiAxNFo7TTE0IDE0QzE0IDE1LjEgMTMuMSAxNiAxMiAxNkMxMC45IDE2IDEwIDE1LjEgMTAgMTRDMTAgMTIuOSAxMiA0IDEyIDRDMTIgNCAxNCAxMi45IDE0IDE0WiIvPjwvcGF0aD48YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIGJlZ2luPSIwLjRzIiBkdXI9IjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgdHlwZT0icm90YXRlIiB2YWx1ZXM9Ii0xMDAgMTIgMTQ7NDUgMTIgMTQ7NDUgMTIgMTQ7NDUgMTIgMTQ7MjAgMTIgMTQ7MTAgMTIgMTQ7MCAxMiAxNDszNSAxMiAxNDs0NSAxMiAxNDs1NSAxMiAxNDs1MCAxMiAxNDsxNSAxMiAxNDstMjAgMTIgMTQ7LTEwMCAxMiAxNCIvPjwvZz48L21hc2s+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZmZmN2Y3IiBtYXNrPSJ1cmwoI1NWR2IwVFVOYnZ5KSIvPjwvc3ZnPg=="
+                        alt="Instant Speed"
+                        class="img-fluid"
+                    />
+                    <span class="text-sm text-white"
+                        >Instantly Access Pro-Grade Crypto Mining Rigs!</span
+                    >
+                </div>
+
+                <h1
+                    class="font-[700] leading-[1.2] tracking-tight text-[28px] sm:text-[34px] md:text-[56px]"
+                >
+                    Effortless Crypto Mining Starts Here
+                </h1>
+
+                <p class="text-lg text-[20px] mb-3">
+                    Unlock powerful mining hardware without the setup hassle.
+                    Rent, activate, and start earning crypto in just a few
+                    clicks.
+                </p>
+                <div class="flex gap-4">
+                    <a
+                        href="app/algorithm-list"
+                        class="btn btn-lg cta-button rounded-md text-white font-medium"
+                    >
+                        <span class="text-rotate inline-block">
+                            <span class="grid text-center">
+                                <span class="w-full flex justify-center"
+                                    >Start Mining</span
+                                >
+                                <span class="w-full flex justify-center"
+                                    >Try Lazypickaxe!</span
+                                >
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image with floating coins -->
+            <div class="relative flex justify-center" data-aos="fade-left">
+                <div class="relative w-max">
+                    <img
+                        src={CryptoImage.src}
+                        alt="Bitcoin Mining Laptop"
+                        class="max-w-full drop-shadow-sm md:h-[500px]"
+                    />
+
+                    <img
+                        src={BitcoinImage.src}
+                        alt="Bitcoin Image"
+                        class="parachute floating parachute-1 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={BitcoinChImage.src}
+                        alt="BitcoinCh image"
+                        class="parachute floating parachute-2 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={DogeCoin.src}
+                        alt="DogeCoin"
+                        class="parachute floating parachute-3 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={KaspaImage.src}
+                        alt="Kaspa"
+                        class="parachute floating parachute-4 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={LiteCoinImage.src}
+                        alt="LiteCoin"
+                        class="parachute floating parachute-5 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={MoneroCoinImage.src}
+                        alt="MoneroCoin"
+                        class="parachute floating parachute-6 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={EthereumCashImage.src}
+                        alt="EthereumCash"
+                        class="parachute floating parachute-7 w-[30px] lg:w-[50px]"
+                    />
+                    <img
+                        src={RavenCoinImage.src}
+                        alt="RavenCoin"
+                        class="parachute floating parachute-8 w-[30px] lg:w-[50px]"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        overflow: hidden;
+        background: linear-gradient(#ffe481, #fff9e5, #fff);
+        padding-top: 174px;
+        padding-bottom: 64px;
+    }
+</style>

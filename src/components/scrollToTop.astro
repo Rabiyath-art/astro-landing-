@@ -1,0 +1,39 @@
+<button
+    class="scroll-to-top-btn btn rounded-full border-0 fixed bottom-6 right-5 hidden opacity-0 transition-opacity duration-300 z-50 shadow-xl"
+    id="scrollTopBtn"
+    title="Scroll to top"
+>
+    ▲
+</button>
+
+<script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    if (scrollBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove("hidden");
+                scrollBtn.classList.add("opacity-100");
+            } else {
+                scrollBtn.classList.add("hidden");
+                scrollBtn.classList.remove("opacity-100");
+            }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+</script>
+
+<style>
+    .scroll-to-top-btn {
+        background: #f7d243;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+</style>

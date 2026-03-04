@@ -1,0 +1,223 @@
+---
+import UserImage from "../assets/svg/user.svg";
+import GuidanceImage from "../assets/images/landing/guidance.gif";
+import LowImage from "../assets/images/landing/low.gif";
+import ScaleImage from "../assets/svg/scale.svg";
+import SpeedImage from "../assets/svg/speed.svg";
+import BoltImage from "../assets/svg/bolt.svg";
+---
+
+<section
+    class="py-10 overflow-x-hidden bg-gradient-to-b from-[#ffe481] to-[#fff9e5]"
+>
+    <div class="container mx-auto px-4 max-w-[1400px]">
+        <div class="text-center mb-10">
+            <h2
+                class="text-[32px] md:text[36px] font-bold relative inline-block heading-animate"
+            >
+                Unlock the Power of Mining
+            </h2>
+        </div>
+        <div class="tabs tabs-lift">
+            <label class="tab text-[16px] pl-[15px] pr-[15px] shadow-md">
+                <input type="radio" name="my_tabs_4" checked="checked" />
+                <p>👩‍💻 Beginners</p>
+            </label>
+            <div class="tab-content p-6 mt-4 sm:mt-2">
+                <div
+                    class="flex flex-col md:flex-row gap-6 justify-between md:mt-5"
+                >
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-purple-400 to-indigo-600 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={UserImage.src}
+                                    alt="Start mining"
+                                    width="24px"
+                                />
+                            </div>
+                            <h5 class="text-[20px] font-bold mt-5">
+                                Simple Onboarding
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Create an account and start mining in just a few
+                                clicks.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-purple-400 to-indigo-600 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={GuidanceImage.src}
+                                    alt="mining Step by step Guidance"
+                                    class="h-8"
+                                />
+                            </div>
+                            <h5 class="text-[20px] text-lg font-bold mt-5">
+                                Step-by-Step Guidance
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Wallet setup, pool connection, payouts made
+                                easy.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-purple-400 to-indigo-600 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={LowImage.src}
+                                    alt="Low Entry Barrier"
+                                    class="h-8"
+                                />
+                            </div>
+                            <h5 class="text-[20px] text-lg font-bold mt-5">
+                                Low Entry Barrier
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Begin with small rentals and scale at your pace.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <label class="tab text-[16px] pl-[15px] pr-[15px] shadow-md">
+                <input type="radio" name="my_tabs_4" />
+                <p>⚡ Professionals</p>
+            </label>
+            <div class="tab-content p-6 mt-4 sm:mt-2">
+                <div
+                    class="flex flex-col md:flex-row gap-6 justify-between md:mt-5"
+                >
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={ScaleImage.src}
+                                    alt="rigs-Scalable rentals"
+                                    width="24px"
+                                />
+                            </div>
+                            <h5 class="text-[20px] text-lg font-bold mt-5">
+                                Scalable Rentals
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Rent multiple rigs or entire farms.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={SpeedImage.src}
+                                    alt="mining rental tracking"
+                                    width="24px"
+                                />
+                            </div>
+                            <h5 class="text-[20px] text-lg font-bold mt-5">
+                                Performance Insight
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Real-time tracking of hashrate and shares.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3">
+                        <div
+                            class="relative border border-[#0a0f3d80] rounded-xl p-6 text-center shadow-[0_8px_24px_#00000014] transition-transform duration-300 ease-in-out hover:shadow-[-5px_10px_0_0_#0a0f3d] hover:marginr-5 bg-white"
+                        >
+                            <div
+                                class="circle-icon absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex items-center justify-center shadow-lg"
+                            >
+                                <img
+                                    src={BoltImage.src}
+                                    alt="solo mining"
+                                    width="24px"
+                                />
+                            </div>
+                            <h5 class="text-[20px] text-lg font-bold mt-5">
+                                Independent Solo Mining
+                            </h5>
+                            <p class="text-gray-600 text-[18px]">
+                                Perfect for Solo Mining with high stability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        background-image: url("../assets/images/guidance/guidance-bg.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        z-index: 0;
+    }
+
+    section:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(#ffe481, #fff9e5);
+        opacity: 0.6;
+        transition: background-color 0.3s ease;
+        z-index: -1;
+    }
+
+    .tab {
+        background-color: white;
+    }
+
+    .tabs-lift {
+        & > .tab {
+            &:is(
+                    .tab-active,
+                    [aria-selected="true"],
+                    [aria-current="true"],
+                    [aria-current="page"]
+                ):not(.tab-disabled, [disabled]),
+            &:is(input:checked, label:has(:checked)) {
+                background-color: #0a0f3d !important;
+                color: white;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            background-position: unset !important;
+        }
+    }
+</style>

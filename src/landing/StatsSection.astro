@@ -1,0 +1,235 @@
+---
+import VerticalWaveImage from "../assets/images/landing/vertical-wave.webp";
+import WaveImage from "../assets/images/landing/horizontal-wave.webp";
+import GradientBall from "../components/GradientBall.astro";
+---
+
+<script>
+    let animated = false;
+    const animateCounters = () => {
+        const counters = document.querySelectorAll<HTMLElement>(".counter");
+        counters.forEach((counter) => {
+            const target = Number(counter.dataset?.target || 0);
+            const original = (counter.textContent || "").trim();
+            let suffix = "";
+            if (original.endsWith("+")) suffix = "+";
+            if (original.toLowerCase().includes("k")) suffix = "k+";
+
+            let start = 0;
+            const duration = 1500;
+            const startTime = performance.now();
+
+            const update = (now: number) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = Math.floor(eased * target);
+                counter.textContent = value + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = target + suffix;
+                }
+            };
+            requestAnimationFrame(update);
+        });
+    };
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting && !animated) {
+                animated = true;
+                animateCounters();
+            }
+        },
+        { threshold: 0.4 },
+    );
+    const sections = document.querySelectorAll(".stats-section");
+    sections.forEach((sec) => observer.observe(sec));
+</script>
+
+<section class="stats-section py-10 relative hidden md:block">
+    <div class="container max-w-[1400px] mx-auto px-4 text-center">
+        <h2 class="text-[36px] font-bold relative inline-block heading-animate">
+            Proven Track of Excellence
+        </h2>
+        <section class="absolute -left-5">
+            <GradientBall />
+        </section>
+        <div class="relative mt-10 w-full flex justify-center">
+            <img src={WaveImage.src} alt="Wave" class="w-full" />
+
+            <div
+                class="absolute top-0 left-0 w-full h-full flex justify-between px-20 md:px-5 lg:px-5 xl:px-20 items-center"
+            >
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-lg"
+                    >
+                        <p
+                            class="text-[40px] md:text-[34px] font-bold counter text-[#0d6efd]"
+                            data-target="6"
+                        >
+                            0+
+                        </p>
+                        <p class="text-[20px] md:-mt-2 font-medium">
+                            Algorithms<br />available
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-lg"
+                    >
+                        <p
+                            class="text-[40px] md:text-[34px] font-bold counter text-[#198754]"
+                            data-target="10"
+                        >
+                            0k+
+                        </p>
+                        <p class="text-[20px] md:-mt-2 font-medium">
+                            Miners<br />Served
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-lg"
+                    >
+                        <p
+                            class="text-[40px] md:text-[34px] font-bold counter"
+                            data-target="5"
+                        >
+                            0+
+                        </p>
+
+                        <p class="text-[20px] md:-mt-2 font-medium">
+                            Farms<br />Connected
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-lg"
+                    >
+                        <p
+                            class="text-[40px] md:text-[34px] font-bold counter text-[#dc3545]"
+                            data-target="10"
+                        >
+                            0+
+                        </p>
+                        <p class="text-[20px] md:-mt-2 font-medium">
+                            Countries<br />served
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- For mobile view -->
+<section class="stats-section py-10 pb-40 relative block md:hidden">
+    <div class="container max-w-[900px] mx-auto relative text-center">
+        <h2
+            class="text-[32px] font-bold relative inline-block heading-animate mb-5"
+        >
+            Proven Track of Excellence
+        </h2>
+        <img
+            src={VerticalWaveImage.src}
+            class="absolute left-1/2 -translate-x-1/2 h-full pointer-events-none"
+            alt="Wave"
+        />
+
+        <ul class="relative space-y-10 z-10 ">
+            <li class="flex justify-center">
+                <div class="translate-x-[20px] translate-y-[30px]">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-xl"
+                    >
+                        <p
+                            class="text-[40px] font-bold counter text-[#0d6efd]"
+                            data-target="6"
+                        >
+                            0+
+                        </p>
+                        <p class="text-[20px] leading-tight text-center">
+                            Algorithms<br />Available
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="flex justify-center">
+                <div class="-translate-x-[15px] translate-y-[50px]">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-xl"
+                    >
+                        <p
+                            class="text-[36px] font-bold counter text-[#198754]"
+                            data-target="10"
+                        >
+                            0k+
+                        </p>
+                        <p class="text-[20px] leading-tight text-center">
+                            Miners<br />Served
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="flex justify-center">
+                <div class="translate-x-[10px] translate-y-[70px]">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-xl"
+                    >
+                        <p
+                            class="text-[36px] font-bold counter"
+                            data-target="5"
+                        >
+                            0+
+                        </p>
+                        <p class="text-[20px] leading-tight text-center">
+                            Farms<br />Connected
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="flex justify-center">
+                <div class="-translate-x-[15px] translate-y-[90px]">
+                    <div
+                        class="w-[200px] h-[200px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col justify-center items-center shadow-xl"
+                    >
+                        <p
+                            class="text-[36px] font-bold counter text-[#dc3545]"
+                            data-target="10"
+                        >
+                            0+
+                        </p>
+                        <p class="text-[20px] leading-tight text-center">
+                            Countries<br />Served
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    .stats-section {
+        position: relative;
+        background-image: url("../assets/images/landing/wave-bg.webp");
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .circle {
+            width: 150px !important;
+            height: 150px !important;
+        }
+    }
+</style>

@@ -1,0 +1,26 @@
+{
+  "name": "my-project",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0 --port 4321",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "@kbyte-tech/astro-clarity": "^0.0.8",
+    "@tailwindcss/vite": "^4.1.17",
+    "aos": "^2.3.4",
+    "astro": "^5.16.0",
+    "astro-seo-schema": "^5.2.0",
+    "schema-dts": "^1.1.5",
+    "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "daisyui": "^5.5.5"
+  }
+}

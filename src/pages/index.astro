@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../landing/HeroSection.astro";
+import SocialMedia from "../components/SocialMedia.astro";
+import SupportedAlgorithms from "../landing/SupportedAlgorithms.astro";
+import EcoMining from "../landing/EcoMining.astro";
+import StatsSection from "../landing/StatsSection.astro";
+import WhyChooseUs from "../landing/WhyChooseUs.astro";
+import OurPartners from "../landing/OurPartners.astro";
+import MiningGuidance from "../landing/MiningGuidance.astro";
+import Testimonials from "../landing/Testimonials.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/scrollToTop.astro";
+
+const seo = {
+	title: "LazyPickaxe – Rent Crypto Mining Rigs Instantly",
+	description:
+		"Rent professional crypto mining rigs with LazyPickaxe. Mine Bitcoin, Litecoin, Monero, Dogecoin, Kaspa & more with eco-friendly, hassle-free setup.",
+	keywords:
+		"crypto mining, rent mining rigs, bitcoin mining, litecoin mining, monero mining, dogecoin mining, kaspa mining, eco-friendly mining, LazyPickaxe",
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+	<Header />
+	<section id="home">
+		<HeroSection />
+		<SocialMedia />
+		<SupportedAlgorithms />
+		<StatsSection />
+	</section>
+	<section id="eco-mining">
+		<EcoMining />
+		<MiningGuidance />
+	</section>
+	<section id="our-partners">
+		<OurPartners />
+	</section>
+	<section id="testimonials">
+		<Testimonials />
+	</section>
+	<section id="about">
+		<WhyChooseUs />
+	</section>
+	<Footer />
+	<ScrollToTop />
+</Layout>

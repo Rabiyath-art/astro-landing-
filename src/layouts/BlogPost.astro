@@ -1,0 +1,183 @@
+---
+import { Image } from "astro:assets";
+import type { MarkdownHeading } from "astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/scrollToTop.astro";
+import SocialMedia from "../components/SocialMedia.astro";
+import Layout from "./Layout.astro";
+import TwitterIcon from "../assets/svg/x.svg";
+import FacebookIcon from "../assets/svg/facebook.svg";
+import LinkedInIcon from "../assets/svg/linkedin.svg";
+import placeholderImage from "../assets/blog/lazypickaxe-blog-placeholder.webp";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const {
+	title,
+	description,
+	pubDate,
+	headings = [],
+	morePosts = [],
+} = Astro.props;
+
+const pageUrl = encodeURIComponent(Astro.url.href);
+const pageTitle = encodeURIComponent(title);
+
+const seo = {
+	title: `${title} | LazyPickaxe Blog – Crypto Mining Insights & Guides`,
+	description:
+		description ||
+		`Read this in-depth article on ${title} to learn more about crypto mining, rig rentals, algorithms, profitability tips, and blockchain security.`,
+};
+---
+
+<Layout title={seo.title} description={seo.description}>
+	<Header />
+	<ScrollToTop />
+	<SocialMedia />
+
+	<section class="relative pt-[120px] md:pt-[150px] pb-[64px] blog-section">
+		<div class="container max-w-[1400px] mx-auto px-4">
+			<div class="grid grid-cols-1 xl:grid-cols-12 gap-10">
+				<aside
+					class="hidden xl:block xl:col-span-3 sticky top-[140px] h-fit"
+				>
+					<nav aria-label="Breadcrumb" class="mb-3">
+						<ol
+							class="flex items-center gap-2 text-sm rounded-full w-fit"
+							style="list-style: none !important;border:none;margin-bottom: 0 !important;padding-left: 0;;"
+						>
+							<li>
+								<a
+									href="/blog"
+									class="text-gray-600 hover:text-[#0a0f3d]"
+								>
+									Blog
+								</a>
+							</li>
+							<li class="text-gray-400">›</li>
+							<li
+								class="font-semibold text-[#0a0f3d] truncate max-w-[250px]"
+							>
+								{title}
+							</li>
+						</ol>
+					</nav>
+					<div class="text-sm mb-4">
+						<span>By Admin</span>
+						<span>|</span>
+						<span><FormattedDate date={pubDate} /></span>
+					</div>
+					<div
+						class="bg-white rounded-xl shadow-sm p-5 border table-of-contents"
+					>
+						<h3 class="font-semibold text-lg mb-4">
+							Table of Contents
+						</h3>
+
+						<ul class="space-y-2 text-sm">
+							{
+								headings
+									.filter(
+										(h: any) =>
+											h.depth === 2 || h.depth === 3,
+									)
+									.map((h: any) => (
+										<li class={h.depth === 3 ? "ml-4" : ""}>
+											<a
+												href={`#${h.slug}`}
+												class="text-gray-700 hover:text-[#F7D243] transition text-[16px]"
+											>
+												{h.text}
+											</a>
+										</li>
+									))
+							}
+						</ul>
+					</div>
+				</aside>
+
+				<main class="col-span-1 xl:col-span-9">
+					<article>
+						<div class="prose max-w-none" data-aos="fade-up">
+							<h1 class="heading-animate">
+								{title}
+							</h1>
+							<slot />
+						</div>
+
+						<div
+							class="mt-10 p-4 flex justify-center items-center gap-5 border-t border-b"
+						>
+							<p>Like this article? Share it!</p>
+							<div class="flex gap-4">
+								<a
+									href={`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`}
+									target="_blank"
+								>
+									<img src={TwitterIcon.src} width="36" />
+								</a>
+								<a
+									href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
+									target="_blank"
+								>
+									<img src={FacebookIcon.src} width="36" />
+								</a>
+								<a
+									href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
+									target="_blank"
+								>
+									<img src={LinkedInIcon.src} width="36" />
+								</a>
+							</div>
+						</div>
+					</article>
+				</main>
+			</div>
+
+			{
+				morePosts && morePosts.length > 0 && (
+					<section class="container max-w-[1400px] mx-auto px-4 relative mt-20">
+						<h2 class="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px] font-bold mb-8 text-center heading-animate w-full">
+							More Articles
+						</h2>
+
+						<div class="grid md:grid-cols-3 gap-8">
+							{morePosts.map((post: any) => (
+								<a
+									href={`/blog/${post.id}`}
+									class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 p-4 flex flex-col"
+								>
+									<Image
+										class="rounded-lg mb-4"
+										width={500}
+										height={250}
+										src={
+											post.data.heroImage ||
+											placeholderImage
+										}
+										alt={post.data.title}
+									/>
+									<h5 class="text-xl font-semibold">
+										{post.data.title}
+									</h5>
+									<p class="text-gray-600 mt-2 line-clamp-2 text-[18px]">
+										{post.data.description}
+									</p>
+								</a>
+							))}
+						</div>
+					</section>
+				)
+			}
+		</div>
+	</section>
+
+	<Footer />
+
+	<style>
+		.blog-section {
+			background: linear-gradient(rgb(255 228 129), rgb(255 249 229));
+		}
+	</style>
+</Layout>

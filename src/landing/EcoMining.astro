@@ -1,0 +1,77 @@
+---
+import SolarMiningImage from "../assets/images/landing/eco.webp";
+import CheckedImage from "../assets/svg/check.svg";
+---
+
+<section class="green-energy-section relative overflow-hidden py-10 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-15">
+            <div data-aos="fade-right">
+                <img
+                    src={SolarMiningImage.src}
+                    alt="Solar Mining"
+                    class="w-full h-auto"
+                />
+            </div>
+
+            <div data-aos="fade-left">
+                <h2 class="font-bold text-gray-900 text-3xl md:text-4xl">
+                    Eco-Friendly Mining Powered by the Sun
+                </h2>
+
+                <p class="text-gray-600 text-lg mt-3 mb-5 max-w-[650px]">
+                    Our mining operations harness clean solar energy to reduce
+                    carbon emissions and lower environmental impact. We believe
+                    in profitable mining that respects the planet.
+                </p>
+
+                <ul class="space-y-3 text-gray-700 text-[18px]">
+                    <li class="flex items-center gap-2">
+                        <img
+                            src={CheckedImage.src}
+                            alt="Check"
+                            class="max-w-full drop-shadow-xl svg-icon"
+                        />
+                        Renewable Solar Energy
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <img
+                            src={CheckedImage.src}
+                            alt="Check"
+                            class="max-w-full drop-shadow-xl svg-icon"
+                        />
+                        Zero Harm to Natural Ecosystems
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <img
+                            src={CheckedImage.src}
+                            alt="Check"
+                            class="max-w-full drop-shadow-xl svg-icon"
+                        />
+                        Lower Carbon Footprint Mining Farms
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .green-energy-section {
+        position: relative;
+        background-image: url("../assets//images/landing/eco-mining.webp");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+
+    .green-energy-section > * {
+        position: relative;
+        z-index: 2;
+    }
+    @media (max-width: 768px) {
+        .green-energy-section {
+            background-position: bottom;
+        }
+    }
+</style>

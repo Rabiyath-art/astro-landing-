@@ -1,0 +1,295 @@
+---
+import TestimonialImage1 from "../assets/images/landing/testimonial/testimonial1.png";
+import TestimonialImage2 from "../assets/images/landing/testimonial/testimonial2.png";
+import TestimonialImage3 from "../assets/images/landing/testimonial/testimonial3.png";
+import TestimonialImage4 from "../assets/images/landing/testimonial/testimonial4.png";
+import LeftArrowImage from "../assets/svg/left-arrow.svg";
+import RightArrowImage from "../assets/svg/right-arrow.svg";
+import GradientBall from "../components/GradientBall.astro";
+---
+
+<section class="testimonial-section py-12 relative z-10">
+	<section class="absolute -left-5 bottom-0">
+		<GradientBall />
+	</section>
+	<section class="absolute right-0">
+		<GradientBall />
+	</section>
+	<div class="container max-w-[1400px] mx-auto px-4">
+		<div class="mb-12 pb-4 relative text-center">
+			<h2
+				class="text-[32px] md:text-[36px] font-bold relative inline-block heading-animate text-white"
+			>
+				What Our Core Clients Say?
+			</h2>
+		</div>
+
+		<div class="overflow-hidden">
+			<div
+				class="testimonial-content flex flex-nowrap gap-6 transition-all duration-700 mt-5 mb-5"
+			>
+				<div
+					class="single-testimonial relative border-4 border-white rounded-3xl flex-shrink-0 w-full md:w-1/2 bg-transparent flex flex-col"
+				>
+					<p
+						class="text-white text-[16px] leading-7 p-10 pb-0 md:pb-6 z-10 relative"
+					>
+						LazyPickaxe transformed my crypto experience. I now
+						truly own my coins, without relying on exchanges. The
+						mining process is secure and straightforward. Highly
+						recommend!
+					</p>
+
+					<div
+						class="client-info flex items-center justify-center pb-10 relative z-10 mt-auto"
+					>
+						<div class="me-4">
+							<img
+								src={TestimonialImage1.src}
+								alt="Testimonial one"
+								class="rounded-full border border-white shadown-sm"
+							/>
+						</div>
+						<div>
+							<h6 class="text-white font-semibold text-lg">
+								Peter M.
+							</h6>
+							<span class="text-white text-xs"
+								>UI Designer & CEO</span
+							>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="single-testimonial relative border-4 border-white rounded-3xl flex-shrink-0 w-full md:w-1/2 bg-transparent flex flex-col"
+				>
+					<p
+						class="text-white text-[16px] leading-7 p-10 pb-0 md:pb-6 relative z-10"
+					>
+						Switching to LazyPickaxe was the best decision I made
+						for my mining operations. The efficiency and output have
+						significantly improved, and the cost savings are
+						remarkable. I highly recommend LazyPickaxe to anyone
+						serious about crypto mining.
+					</p>
+
+					<div
+						class="client-info flex items-center justify-center pb-10 relative z-10 mt-auto"
+					>
+						<div class="me-4">
+							<img
+								src={TestimonialImage2.src}
+								alt="Testimonial two"
+								class="rounded-full border border-white shadown-sm"
+							/>
+						</div>
+
+						<div>
+							<h6 class="text-white font-semibold text-lg">
+								Danny K.
+							</h6>
+							<span class="text-white text-xs"
+								>Crypto Enthusiast</span
+							>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="single-testimonial relative border-4 border-white rounded-3xl flex-shrink-0 w-full md:w-1/2 bg-transparent flex flex-col"
+				>
+					<p
+						class="text-white text-[16px] leading-7 p-10 pb-0 md:pb-6 relative z-10"
+					>
+						LazyPickaxe offers a seamless mining experience. Their
+						platform is user-friendly, and the support team is
+						incredibly responsive. I've seen consistent returns on
+						my investment, and I couldn't be happier with their
+						service.
+					</p>
+
+					<div
+						class="client-info flex items-center justify-center pb-10 relative z-10 mt-auto"
+					>
+						<div class="me-4">
+							<img
+								src={TestimonialImage3.src}
+								alt="Testimonial three"
+								class="rounded-full border border-white shadown-sm"
+							/>
+						</div>
+						<div>
+							<h6 class="text-white font-semibold text-lg">
+								Ryan L.
+							</h6>
+							<span class="text-white text-xs"
+								>Mining Investor</span
+							>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="single-testimonial relative border-4 border-white rounded-3xl flex-shrink-0 w-full md:w-1/2 bg-transparent flex flex-col"
+				>
+					<p
+						class="text-white text-[16px] leading-7 p-10 pb-0 md:pb-6 relative z-10"
+					>
+						LazyPickaxe made crypto easy and secure. I truly own my
+						crypto without intermediaries. The sense of security is
+						unmatched. The only way to confidently own digital
+						assets!
+					</p>
+
+					<div
+						class="client-info flex items-center justify-center pb-10 relative z-10 mt-auto"
+					>
+						<div class="me-4">
+							<img
+								src={TestimonialImage4.src}
+								alt="Testimonial four"
+								class="rounded-full border border-white shadown-sm"
+							/>
+						</div>
+
+						<div>
+							<h6 class="text-white font-semibold text-lg">
+								Yousef G.
+							</h6>
+							<span class="text-white text-xs"
+								>Mining Investor</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex justify-center gap-4 mt-6">
+		<button
+			id="prevBtn"
+			class="w-12 h-12 flex items-center justify-center rounded-full bg-white/20 border border-white text-white text-xl hover:bg-white/30 transition cursor-pointer"
+		>
+			<img src={LeftArrowImage.src} alt="left arrow" />
+		</button>
+
+		<button
+			id="nextBtn"
+			class="w-12 h-12 flex items-center justify-center rounded-full bg-white/20 border border-white text-white text-xl hover:bg-white/30 transition cursor-pointer"
+		>
+			<img src={RightArrowImage.src} alt="right arrow" />
+		</button>
+	</div>
+</section>
+
+<style>
+	.testimonial-section {
+		position: relative;
+		z-index: 0;
+	}
+
+	.testimonial-section:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: #0a0f3d;
+		transition: background-color 0.3s ease;
+		z-index: -1;
+	}
+	.single-testimonial::before {
+		content: "";
+		position: absolute;
+		left: -25px;
+		top: -25px;
+		width: 90px;
+		height: 70px;
+		background: url("../../assets/images/landing/white-quote.webp")
+			no-repeat center/60% #0a0f3d;
+		transform: rotate(180deg);
+	}
+
+	.single-testimonial::after {
+		content: "";
+		position: absolute;
+		right: -25px;
+		bottom: -25px;
+		width: 90px;
+		height: 70px;
+		background: url("../../assets/images/landing/white-quote.webp")
+			no-repeat center/60% #0a0f3d;
+	}
+
+	.heading-animate {
+		position: relative;
+		display: inline-block;
+	}
+
+	.heading-animate::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+		width: 120px;
+		height: 4px;
+		background: #ffffff;
+		border-radius: 50px;
+		overflow: hidden;
+	}
+</style>
+
+<script>
+	const track = document.querySelector(".testimonial-content");
+	const slides = document.querySelectorAll(".single-testimonial");
+	const prevBtn = document.getElementById("prevBtn");
+	const nextBtn = document.getElementById("nextBtn");
+	let index = 0;
+	const visibleCards = 2;
+	const gap = 24;
+
+	function updateWidth() {
+		return (slides[0] as HTMLElement).offsetWidth + gap;
+	}
+
+	function goToSlide(i: any) {
+		const cardWidth = updateWidth();
+		(track as HTMLElement).style.transform =
+			`translateX(-${i * cardWidth}px)`;
+	}
+
+	function nextSlide() {
+		index++;
+		if (index > slides.length - visibleCards) index = 0;
+		goToSlide(index);
+	}
+
+	function prevSlide() {
+		index--;
+		if (index < 0) index = slides.length - visibleCards;
+		goToSlide(index);
+	}
+
+	let autoPlay = setInterval(nextSlide, 3000);
+	if (track) {
+		track.addEventListener("mouseenter", () => clearInterval(autoPlay));
+		track.addEventListener("mouseleave", () => {
+			autoPlay = setInterval(nextSlide, 3000);
+		});
+	}
+
+	// Manual navigation
+	if (nextBtn) {
+		nextBtn.addEventListener("click", () => {
+			nextSlide();
+			clearInterval(autoPlay);
+		});
+	}
+
+	if (prevBtn) {
+		prevBtn.addEventListener("click", () => {
+			prevSlide();
+			clearInterval(autoPlay);
+		});
+	}
+</script>

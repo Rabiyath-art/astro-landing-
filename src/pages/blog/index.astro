@@ -1,0 +1,239 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import SocialMedia from "../../components/SocialMedia.astro";
+import ScrollToTop from "../../components/scrollToTop.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import fs from "node:fs/promises";
+import SearchIcon from "../../assets/svg/search.svg";
+import placeholderImage from "../../assets/blog/lazypickaxe-blog-placeholder.webp";
+
+const rawPosts = await getCollection("blog");
+
+const postsWithDates = await Promise.all(
+	rawPosts.map(async (post) => {
+		const mdFilePath = `src/content/blog/${post.id}.md`;
+		let stat;
+		try {
+			stat = await fs.stat(mdFilePath);
+		} catch {
+			stat = { birthtime: new Date() };
+		}
+
+		return {
+			...post,
+			data: {
+				...post.data,
+				pubDate: post.data.pubDate || stat.birthtime,
+			},
+		};
+	}),
+);
+
+const posts = postsWithDates.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
+
+const seo = {
+	title: "LazyPickaxe | Blog - Crypto Mining Guides, Tips & Industry Updates",
+	description:
+		"Explore the LazyPickaxe Blog for the latest crypto mining guides, rig rental tips, algorithm insights, profitability strategies, platform updates, and step-by-step tutorials for beginners and experts.",
+	keywords:
+		"LazyPickaxe blog, crypto mining blog, mining rig rental tips, cryptocurrency guides, mining tutorials, crypto profitability tips, mining algorithms explained, LazyPickaxe updates, crypto news, mining beginners guide",
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+	<Header />
+	<SocialMedia />
+	<ScrollToTop />
+	<section class="relative pt-[150px] pb-[64px] overflow-hidden">
+		<div class="container max-w-[1400px] mx-auto px-4 relative">
+			<h1
+				class="text-[34px] md:text-[36px] font-bold relative inline-block heading-animate mb-14 text-center w-full"
+			>
+				Lazypickaxe Blog
+			</h1>
+			<!-- <div class="mb-10 flex justify-between flex-wrap gap-y-4 sm:gap-4">
+				<div class="relative w-full max-w-md order-1 sm:order-2">
+					<input
+						id="blogSearch"
+						type="text"
+						placeholder="Search blog articles..."
+						class="w-full rounded-xl px-4 py-2 pr-10 bg-white shadow-sm text-sm focus:outline-none"
+					/>
+					<img
+						src={SearchIcon.src}
+						alt="Search Blog"
+						class="absolute inset-y-0 right-3 top-2 pointer-events-none w-5 h-5"
+					/>
+				</div>
+
+				<div
+					class="flex flex-wrap gap-3 justify-center order-2 sm:order-1"
+				>
+					<button class="filter-btn active" data-filter="all"
+						>All</button
+					>
+					<button class="filter-btn" data-filter="what">What</button>
+					<button class="filter-btn" data-filter="how">How</button>
+					<button class="filter-btn" data-filter="about">About</button
+					>
+				</div>
+			</div> -->
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+				{
+					posts.map((post: any, index: number) => (
+						<a
+							href={`/blog/${post.id}/`}
+							data-title={post.data.title}
+							data-description={post.data.description}
+							data-category={(
+								post.data.category || "all"
+							).toLowerCase()}
+							class="blog-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 p-3 flex flex-col"
+						>
+							<Image
+								width={720}
+								height={360}
+								src={post.data.heroImage || placeholderImage}
+								alt={post.data.title}
+								class="w-full object-cover rounded-xl"
+							/>
+
+							<div class="pt-5 flex flex-col h-full">
+								<p class="text-sm py-1 px-2 rounded-full bg-[rgba(247,210,67,0.9)] w-2/4 text-center mb-2 shadow-sm">
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+								<h3 class="text-xl font-semibold text-gray-800 mb-2">
+									{post.data.title}
+								</h3>
+								<p class="text-gray-600 mb-4 line-clamp-2 text-[16px]">
+									{post.data.description ||
+										"Read more about crypto mining, hashrate insights, and LazyPickaxe updates."}
+								</p>
+								<div class="mt-auto">
+									<span class="inline-block text-sm font-medium px-4 py-2 rounded-lg transition bg-[#F7D243] text-black md:bg-transparent md:text-inherit border border-[#F7D243] md:hover:bg-[#F7D243] md:hover:text-black">
+										Read More
+									</span>
+								</div>
+							</div>
+						</a>
+					))
+				}
+			</div>
+
+			<!-- For no blogs -->
+			<p
+				id="noBlogs"
+				class="hidden text-center text-gray-600 text-lg mt-14"
+			>
+				No blog available with this name.
+			</p>
+		</div>
+	</section>
+	<Footer />
+</Layout>
+
+<style>
+	section {
+		position: relative;
+		background-image: url("../../assets//images/landing/blog.webp");
+		background-repeat: no-repeat;
+		background-position: left;
+		background-size: cover;
+		z-index: 0;
+	}
+
+	section:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(#ffe481, #fff9e5);
+		opacity: 0.95;
+		transition: background-color 0.3s ease;
+		z-index: -1;
+	}
+	.grid:first-child {
+		width: 100%;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+	.title {
+		margin: 0;
+		color: rgb(var(--black));
+		line-height: 1;
+	}
+	.date {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+	.filter-btn {
+		padding: 5px 15px;
+		border-radius: 10px;
+		font-size: 14px;
+		border: 1px solid #0a0f3d;
+		background: transparent;
+		cursor: pointer;
+		font-size: 16px;
+		transition: all 0.2s ease;
+	}
+
+	.filter-btn.active,
+	.filter-btn:hover {
+		background: #0a0f3d;
+		color: #fcfcfc;
+	}
+</style>
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		const searchInput = document.getElementById("blogSearch");
+		const blogCards = document.querySelectorAll(".blog-card");
+		const noBlogs = document.getElementById("noBlogs");
+		const filterButtons = document.querySelectorAll(".filter-btn");
+		let activeFilter = "all";
+		filterButtons.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				filterButtons.forEach((b) => b.classList.remove("active"));
+				btn.classList.add("active");
+				activeFilter = btn.dataset.filter || "all";
+				console.log("activeFilter", activeFilter);
+				applyFilters();
+			});
+		});
+		searchInput.addEventListener("input", applyFilters);
+
+		function applyFilters() {
+			const query = searchInput.value.toLowerCase();
+			let visibleCount = 0;
+
+			blogCards.forEach((card) => {
+				const title = card.dataset.title?.toLowerCase() || "";
+				const description =
+					card.dataset.description?.toLowerCase() || "";
+				const category = card.dataset.category;
+
+				const matchesSearch =
+					title.includes(query) || description.includes(query);
+
+				const matchesCategory =
+					activeFilter === "all" || category === activeFilter;
+
+				if (matchesSearch && matchesCategory) {
+					card.style.display = "flex";
+					visibleCount++;
+				} else {
+					card.style.display = "none";
+				}
+			});
+
+			noBlogs.classList.toggle("hidden", visibleCount !== 0);
+		}
+	});
+</script>

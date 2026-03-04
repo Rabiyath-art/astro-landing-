@@ -1,0 +1,430 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SocialMedia from "../../components/SocialMedia.astro";
+import ScrollToTop from "../../components/scrollToTop.astro";
+import FaqImage from "../../assets/images/landing/faq.webp";
+const faqItems = [
+    {
+        question:
+            "What is Hashrate and how is it used in cryptocurrency mining?",
+        answer: "Hashrate refers to the computational power used for verifying transactions and mining blocks. Higher hashrate increases mining efficiency and potential rewards.",
+    },
+    {
+        question: "What are the different mining algorithms supported?",
+        answer: "LazyPickaxe supports SHA256AsicBoost for Bitcoin and Bitcoin Cash, Scrypt for Litecoin and Dogecoin, RandomXMonero for Monero, Kawpow for Ravencoin, Neoxa and Clore, KHeavyHash for Kaspa, EtcHash for Ethereum Classic and Dogether, and Equihash for Zcash.",
+    },
+    {
+        question:
+            "How can I set up my own worker in the mining pool configuration?",
+        answer: "To set up a worker, enter the pool URL and worker name in the Mining Pool Configuration section. The worker name is typically used to monitor your mining activity within the pool.",
+    },
+    {
+        question: "How do I verify my mining pool?",
+        answer: "To verify your mining pool, ensure that you have entered the correct pool URL and worker details, then click the Verify button to initiate the process.",
+    },
+    {
+        question: "Do we support node mining?",
+        answer: "No, LazyPickaxe supports pool mining only. Pool mining allows multiple miners to work together to solve blocks and share rewards more consistently.",
+    },
+    {
+        question: "Where is my Allocation?",
+        answer: "To find your allocation, open the app and select Allocation from your dashboard.",
+    },
+    {
+        question: "What payment methods are available?",
+        answer: "We support Bitcoin and Lightning Network payments.",
+    },
+    {
+        question: "How to create your crypto wallet with Exodus?",
+        answer: "To start renting mining rigs on LazyPickaxe, you need a crypto wallet. Exodus is a beginner-friendly wallet that supports over 300 cryptocurrencies.",
+    },
+    {
+        question: "What is BTC Lightning payment?",
+        answer: "BTC Lightning is a second-layer solution built on Bitcoin that enables faster transactions with lower fees by creating off-chain micropayment channels.",
+    },
+    {
+        question: "What is the advantage of joining a mining pool?",
+        answer: "Joining a mining pool reduces payout volatility by providing smaller, more frequent payments instead of waiting for a full block reward.",
+    },
+    {
+        question:
+            "How long does it take for my mining session to start after payment?",
+        answer: "After successful payment, mining usually begins within a few minutes, depending on network congestion and transaction confirmation time.",
+    },
+];
+
+const seo = {
+    title: "LazyPickaxe | FAQs - Crypto Mining Rig Rentals & Payments Explained",
+    description:
+        "Find answers to common questions about LazyPickaxe crypto mining rentals, payments, algorithms, setup guides, wallet Deposit, mining pools, and platform features. Clear, simple, and beginner-friendly FAQs to help you start mining smoothly.",
+    keywords:
+        "LazyPickaxe FAQ, crypto mining questions, mining rig rental FAQ, how to rent mining rigs, mining algorithms FAQ, crypto mining setup guide, wallet withdrawal FAQ, mining pool questions, LazyPickaxe help center, mining payments FAQ",
+};
+---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    keywords={seo.keywords}
+    faqItems={faqItems}
+>
+    <Header />
+    <SocialMedia />
+    <ScrollToTop />
+    <section class="relative pt-[150px] pb-[64px] overflow-hidden">
+        <div class="container max-w-[1400px] mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-start gap-10 md:gap-15">
+                <div class="relative md:w-1/2">
+                    <div>
+                        <h1
+                            class="font-bold text-gray-900 text-[34px] md:text-[36px]"
+                        >
+                            Frequently Asked Questions
+                        </h1>
+                        <p class="text-gray-600 text-lg mt-3 max-w-[650px]">
+                            Explore answers to the most common questions and
+                            learn how LazyPickaxe delivers a fast, reliable, and
+                            hardware-free mining experience.
+                        </p>
+                        <img
+                            src={FaqImage.src}
+                            alt="crypto-mining-faq"
+                            class=""
+                        />
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 w-full space-y-4 pr-2">
+                    <div
+                        id="what-is-hashrate"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#what-is-hashrate"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="What is Hashrate and how is it used in cryptocurrency mining?"
+                            >
+                                What is Hashrate and how is it used in
+                                cryptocurrency mining?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            Hashrate refers to the computational power used for
+                            verifying transactions and mining blocks. Higher
+                            hashrate increases mining efficiency and potential
+                            rewards.
+                        </div>
+                    </div>
+
+                    <div
+                        id="supported-mining-algorithms"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#supported-mining-algorithms"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label=" What are the different mining algorithms supported?"
+                            >
+                                What are the different mining algorithms
+                                supported?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            LazyPickaxe supports the following algorithms and
+                            cryptocurrencies: SHA256AsicBoost for Bitcoin and
+                            Bitcoin Cash, Scrypt for Litecoin and Dogecoin,
+                            RandomXMonero for Monero, Kawpow for Ravencoin,
+                            Neoxa, and Clore, KHeavyHash for Kaspa, EtcHash for
+                            Ethereum Classic and Dogether, and Equihash for
+                            Zcash.
+                        </div>
+                    </div>
+
+                    <div
+                        id="setup-mining-worker"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#setup-mining-worker"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                How can I set up my own worker in the mining
+                                pool configuration?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            To set up a worker, enter the pool URL and worker
+                            name in the Mining Pool Configuration section. The
+                            worker name is typically used to monitor your mining
+                            activity within the pool.
+                        </div>
+                    </div>
+
+                    <div
+                        id="verify-mining-pool"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#verify-mining-pool"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                How do I verify my mining pool?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            To verify your mining pool, ensure that you have
+                            entered the correct pool URL and worker details.
+                            Click the "Verify" button to initiate the
+                            verification process.
+                        </div>
+                    </div>
+
+                    <div
+                        id="node-mining-support"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#node-mining-support"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                Do we support node mining?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            No, we do not support node mining. Our services are
+                            designed exclusively for pool mining. Pool mining
+                            allows multiple miners to work together to solve
+                            blocks and share the rewards, providing a more
+                            consistent and reliable mining experience.
+                        </div>
+                    </div>
+
+                    <div
+                        id="find-allocation"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#find-allocation"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                Where is my Allocation?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            To find your Allocation, you can go on the app and
+                            select "ALLOCATION"
+                        </div>
+                    </div>
+
+                    <div
+                        id="payment-methods"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#payment-methods"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                What payment methods are available?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            We support Bitcoin, Lightning payments.
+                        </div>
+                    </div>
+
+                    <div
+                        id="create-exodus-wallet"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#create-exodus-wallet"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                How to create your crypto wallet with Exodus
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            <p>
+                                To start renting mining rigs on LazyPickaxe,
+                                you’ll need a crypto wallet. We recommend
+                                <strong>Exodus</strong> — a secure and beginner-friendly
+                                wallet that supports 300+ cryptocurrencies.
+                            </p>
+                            <a
+                                class="btn btn-warning btn-md mt-3"
+                                href="/blog"
+                                target="_blank"
+                                >Create Wallet with Exodus
+                            </a>
+                        </div>
+                    </div>
+
+                    <div
+                        id="btc-lightning-payment"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#btc-lightning-payment"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                What is BTC Lightning payment?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            BTC Lightning is a second layer to bitcoin's
+                            blockchain that proposes to decongest its network by
+                            creating micropayment channels off-chain. This
+                            allows for faster transactions with lower fees.
+                        </div>
+                    </div>
+
+                    <div
+                        id="benefits-of-mining-pool"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#benefits-of-mining-pool"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="  How can I set up my own worker in the mining pool configuration?"
+                            >
+                                What is the advantage of joining a mining pool?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            Joining a mining pool helps to reduce the volatility
+                            of your payouts by providing smaller, more frequent
+                            payments rather than a lump sum that you only
+                            receive when a block is solved.
+                        </div>
+                    </div>
+
+                    <div
+                        id="mining-session-start-time"
+                        class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                        <input type="checkbox" />
+                        <div
+                            class="collapse-title text-lg font-semibold text-gray-800"
+                        >
+                            <a
+                                href="#mining-session-start-time"
+                                class="block w-full text-gray-800 hover:underline"
+                                aria-label="What is Hashrate and how is it used in cryptocurrency mining?"
+                            >
+                                How long does it take for my mining session to
+                                start after payment?
+                            </a>
+                        </div>
+                        <div
+                            class="collapse-content text-[17px] text-gray-600 leading-[28px]"
+                        >
+                            After successful payment, your mining session will
+                            typically begin within a few minutes. However, the
+                            exact time may vary depending on the network
+                            congestion and transaction confirmation time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer />
+</Layout>
+
+<script is:inline>
+    function openFaqFromHash() {
+        if (!location.hash) return;
+        document
+            .querySelectorAll('.collapse input[type="checkbox"]')
+            .forEach((i) => (i.checked = false));
+        const el = document.querySelector(location.hash);
+        if (!el) return;
+        const input = el.querySelector('input[type="checkbox"]');
+        if (!input) return;
+        input.checked = true;
+        el.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    }
+    window.addEventListener("DOMContentLoaded", openFaqFromHash);
+    window.addEventListener("hashchange", openFaqFromHash);
+    document.addEventListener("click", (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target || !target.classList.contains("collapse")) return;
+        e.preventDefault();
+        history.pushState(null, "", link.getAttribute("href"));
+        openFaqFromHash();
+    });
+</script>

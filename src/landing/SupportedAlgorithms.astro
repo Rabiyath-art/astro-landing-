@@ -1,0 +1,131 @@
+---
+import BitcoinBtcImage from "../assets/images/landing/bitcoin-btc.webp";
+import BitcoinImage from "../assets/images/landing/bch.webp";
+import DodgeCoinImage from "../assets/images/landing/dogecoin.webp";
+import LiteCoinImage from "../assets/images/landing/litecoin.webp";
+import KaspaImage from "../assets/images/landing/kaspa.webp";
+import MoneroImage from "../assets/images/landing/monero-xmr.webp";
+import RavenCoinImage from "../assets/images/landing/ravencoin-rvn.webp";
+import EthereumCashImage from "../assets/images/landing/ethereum-cash.webp";
+const coins = [
+    {
+        name: "Bitcoin",
+        image: BitcoinImage,
+        algorithm: "SHA256ASICBOOST",
+        alt: "SHA256ASICBOOST Bitcoin",
+    },
+    {
+        name: "Bitcoin Cash",
+        image: BitcoinBtcImage,
+        algorithm: "SHA256ASICBOOST",
+        alt: "SHA256ASICBOOST BitcoinCash",
+    },
+    {
+        name: "DogeCoin",
+        image: DodgeCoinImage,
+        algorithm: "Scrypt",
+        alt: "Scrypt DogeCoin",
+    },
+    {
+        name: "LiteCoin",
+        image: LiteCoinImage,
+        algorithm: "Scrypt",
+        alt: "Scrypt LiteCoin",
+    },
+    {
+        name: "Kaspa",
+        image: KaspaImage,
+        algorithm: "Kheavyhash",
+        alt: "Kheavyhash Kaspa",
+    },
+    {
+        name: "Monero",
+        image: MoneroImage,
+        algorithm: "RandomX",
+        alt: "RandomX Monero",
+    },
+    {
+        name: "RavenCoin",
+        image: RavenCoinImage,
+        algorithm: "Kawpow",
+        alt: "Kawpow RavenCoin",
+    },
+    {
+        name: "Ethereum Cash",
+        image: EthereumCashImage,
+        algorithm: "ETCHASH",
+        alt: "EtcHash Ethereum Cash",
+    },
+];
+---
+
+<section class="supported-algorithms">
+    <div class="container max-w-[1400px] mx-auto px-4">
+        <div class="overflow-hidden py-5">
+            <div class="overflow-x-auto md:overflow-x-hidden">
+                <div class="animate-scroll flex gap-10 shrink-0">
+                    {
+                        [...coins, ...coins].map((coin, index) => (
+                            <div
+                                class="flex items-center bg-white/20 rounded-xl shrink-0 py-[10px] px-[20px] shadow-md shadow-[#F7D243]/30 border border-white/20"
+                                data-index={index}
+                            >
+                                <img
+                                    src={coin.image.src}
+                                    alt={coin.alt}
+                                    class="w-[50px]"
+                                />
+                                <div class="ml-4 text-white">
+                                    <p class="text-[18px] sm:text-[auto]">
+                                        {coin.name}
+                                    </p>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-md text-[12px] font-medium bg-white/10 border border-white/20 text-white">
+                                        {coin.algorithm}
+                                    </span>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .supported-algorithms {
+        position: relative;
+        background-image: url("../assets/images/landing/supported-algorithm-bg.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .supported-algorithms::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: brightness(0.8);
+        z-index: 1;
+    }
+
+    .supported-algorithms > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>

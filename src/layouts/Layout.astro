@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import SeoSchema from "../components/SeoSchema.astro";
+const { PUBLIC_CLARITY_ID, PUBLIC_GA_ID } = import.meta.env;
+const {
+    title = "LazyPickaxe",
+    description = "Rent professional crypto mining rigs instantly with LazyPickaxe.",
+    keywords = "",
+    faqItems = null
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <title>{title}</title>
+      <SeoSchema
+      title={title}
+      description={description}
+      faqItems={faqItems}
+    />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- <link rel="alternate" type="application/rss+xml" href={new URL('rss.xml', Astro.site)}/> -->
+    <link rel="canonical" href={`https://lazypickaxe.com${Astro.url.pathname}`}/>
+    <link rel="alternate" type="application/rss+xml" href="https://lazypickaxe.com/rss.xml">
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+        import { initAOS } from "../scripts/aos";
+        initAOS();
+        import "../scripts/clarity-spa";
+    </script>
+    <!-- <script type="module" src="/src/scripts/clarity-spa.ts"></script> -->
+    {PUBLIC_GA_ID && (
+        <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`}></script>
+            <script is:inline>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', '{PUBLIC_GA_ID}');
+            </script>
+        </>
+    )}
+
+    <!-- Microsoft Clarity -->
+    {PUBLIC_CLARITY_ID && (
+        <script is:inline set:html={`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r); t.async=1; 
+                t.src="https://www.clarity.ms/tag/${PUBLIC_CLARITY_ID}";
+                y=l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script");
+        `}></script>
+    )}
+</head>
+
+<body>
+    <slot/>
+</body>
+</html>

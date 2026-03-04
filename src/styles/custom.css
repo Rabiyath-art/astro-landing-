@@ -1,0 +1,213 @@
+/* For CTA button style */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 2;
+    border: none;
+    box-shadow: 0 4px 12px rgba(13, 202, 240, 0.2);
+    background: var(--dark-green);
+}
+
+.cta-button:hover {
+    box-shadow: 0 6px 25px rgba(13, 202, 240, 0.4);
+    transform: translateY(-2px);
+}
+
+.cta-button::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0));
+    transform: skewX(-20deg);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+.parachute {
+    position: absolute;
+    /* width: 50px; */
+    height: auto;
+    bottom: -50px;
+    animation: flyUp 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+.floating {
+    animation-timing-function: ease-in-out;
+}
+
+.parachute-1 {
+    top: -60px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.parachute-2 {
+    top: -65px;
+    left: 35%;
+    animation-delay: 0.5s;
+}
+
+.parachute-3 {
+    top: -70px;
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.parachute-4 {
+    top: -60px;
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+.parachute-5 {
+    top: 0px;
+    left: 20%;
+    animation-delay: 0.2s;
+}
+
+.parachute-6 {
+    top: -5px;
+    left: 45%;
+    animation-delay: 0.7s;
+}
+
+.parachute-7 {
+    top: 0px;
+    left: 70%;
+    animation-delay: 1.2s;
+}
+
+.parachute-8 {
+    top: 20px;
+    left: 90%;
+    animation-delay: 1.7s;
+}
+
+.social-sidebar {
+    position: fixed;
+    top: 45%;
+    right: 0;
+    z-index: 9999;
+}
+
+.icons-wrapper {
+    overflow: hidden;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.4s ease;
+}
+
+.icons-wrapper.hidden {
+    max-height: 0;
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.toggle-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 6px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .toggle-btn {
+        display: none;
+    }
+}
+
+.svg-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.heading-animate {
+    position: relative;
+    display: inline-block;
+}
+
+.heading-animate::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: #0a0f3d;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.heading-animate::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-60px);
+    /* half of line width */
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    animation: moveBall 1.8s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes moveBall {
+    0% {
+        transform: translateX(-60px);
+    }
+
+    50% {
+        transform: translateX(60px);
+    }
+
+    100% {
+        transform: translateX(-60px);
+    }
+}

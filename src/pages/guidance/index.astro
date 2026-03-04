@@ -1,0 +1,194 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ScrollToTop from "../../components/scrollToTop.astro";
+import SocialMedia from "../../components/SocialMedia.astro";
+
+import StartImage from "../../assets/images/guidance/start.gif";
+import AlgorithmImage from "../../assets/images/guidance/algorithm.gif";
+import DurationImage from "../../assets/images/guidance/rig-duration.gif";
+import MiningPower from "../../assets/images/guidance/mining-power.gif";
+import PaymentImage from "../../assets/images/guidance/payment.gif";
+
+const seo = {
+    title: "How LazyPickaxe Works – Step-by-Step Mining Guide",
+    description:
+        "Follow our simple step-by-step mining guide to begin mining with LazyPickaxe. Learn how to choose algorithms, configure hashrate, set up mining pools, make payments, and start mining instantly—no hardware required.",
+    keywords:
+        "how LazyPickaxe works, crypto mining guide, start mining tutorial, rent mining rigs, mining setup steps, mining workflow, crypto mining setup, LazyPickaxe mining guide, how to start crypto mining",
+};
+
+const steps = [
+    {
+        step: "Step 1",
+        title: "Start Mining Instantly",
+        text: "No hardware. No setup. Click and start mining — it's that simple.",
+        img: StartImage.src,
+        alt: "Start Mining Instantly",
+        position: "start",
+    },
+    {
+        step: "Step 2",
+        title: "Select Your Algorithm",
+        text: "Pick the mining algorithm that fits your goals — BTC, LTC, KAS, RVN, XMR & more.",
+        img: AlgorithmImage.src,
+        alt: "Select Algorithm",
+        position: "end",
+    },
+    {
+        step: "Step 3",
+        title: "Select Hashrate",
+        text: "Choose your mining power. More hashrate = more earnings.",
+        img: MiningPower.src,
+        alt: "Mining power",
+        position: "start",
+    },
+    {
+        step: "Step 4",
+        title: "Choose Duration",
+        text: "Select how long you want the rig to run — longer runs earn more.",
+        img: DurationImage.src,
+        alt: "Rig Duration",
+        position: "end",
+    },
+    {
+        step: "Step 5",
+        title: "Mining Pool Settings",
+        text: "Add your pool URL & worker name. Your mining starts instantly.",
+        img: MiningPower.src,
+        alt: "Pool Settings",
+        position: "start",
+    },
+    {
+        step: "Step 6",
+        title: "Payment",
+        text: "Complete your rental using BTC, Lightning or Wallet balance. That's it — you're ready to roll.",
+        img: PaymentImage.src,
+        alt: "Payment",
+        position: "end",
+    },
+];
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+    <Header />
+    <SocialMedia />
+    <ScrollToTop />
+    <section class="relative pt-[150px] overflow-hidden">
+        <div class="container max-w-[1400px] mx-auto px-4 relative">
+            <h1
+                class="text-[34px] md:text-[36px] font-bold text-center mb-16 drop-shadow-xl heading-animate w-full"
+            >
+                Mining Guidance
+            </h1>
+
+            <ul
+                class="timeline timeline-snap-icon timeline-vertical hidden md:block"
+            >
+                {
+                    steps.map((s, idx) => (
+                        <li>
+                            {idx !== 0 && <hr />}
+
+                            <div class="timeline-middle">
+                                <div class="bg-[#0a0f3d] text-white p-3 rounded-full shadow-lg">
+                                    <img src={s.img} alt={s.alt} width="35px" />
+                                </div>
+                            </div>
+
+                            <div
+                                data-aos={
+                                    s.position === "start"
+                                        ? "fade-right"
+                                        : "fade-left"
+                                }
+                                data-aos-delay={idx * 50}
+                                class={`timeline-${s.position} bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-xl border border-white/50 mb-12
+                                ${s.position === "start" ? "md:mr-3 md:ml-0 md:text-end" : "md:ml-3 md:mr-0"}`}
+                            >
+                                <time class="text-sm font-bold uppercase text-white bg-[#0a0f3d] p-2 rounded-md">
+                                    {s.step}
+                                </time>
+
+                                <div class="text-2xl font-extrabold mt-1 mb-2">
+                                    {s.title}
+                                </div>
+                                <p class="text-gray-700">{s.text}</p>
+                            </div>
+
+                            <hr />
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <!-- For mobile view -->
+            <ul class="timeline timeline-vertical block md:hidden relative">
+                {
+                    steps.map((s, idx) => (
+                        <li
+                            class="flex items-start relative mb-12"
+                            data-aos="fade-up"
+                            data-aos-delay={idx * 20}
+                        >
+                            {idx !== steps.length - 1 && (
+                                <span class="absolute left-5 top-10 h-full border-l-2 border-[#0a0f3d80]" />
+                            )}
+
+                            <div class="flex-shrink-0 z-10">
+                                <div class="bg-[#0a0f3d] text-white p-3 rounded-full shadow-lg w-10 h-10 flex items-center justify-center">
+                                    <img
+                                        src={s.img}
+                                        alt={s.alt}
+                                        class="w-6 h-6"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="ml-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-md border border-white/50 flex-1">
+                                <time class="text-xs font-bold uppercase text-white bg-[#0a0f3d] p-1 rounded-md">
+                                    {s.step}
+                                </time>
+                                <div class="text-lg font-extrabold mt-1 mb-1">
+                                    {s.title}
+                                </div>
+                                <p class="text-gray-700 text-sm">{s.text}</p>
+                            </div>
+                            <hr />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
+    <Footer />
+</Layout>
+
+<style>
+    section {
+        position: relative;
+        background-image: url("../../assets/images/guidance/guidance-bg.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        z-index: 0;
+    }
+
+    section:before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(#ffe481, #fff9e5);
+        opacity: 0.95;
+        inset: 0;
+        background: linear-gradient(
+            rgba(255, 220, 90, 0.85),
+            rgba(255, 240, 180, 0.95)
+        );
+        backdrop-filter: blur(4px);
+        z-index: -1;
+    }
+    hr {
+        background-color: rgba(10, 15, 61, 0.5);
+    }
+</style>

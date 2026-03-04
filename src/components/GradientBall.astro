@@ -1,0 +1,41 @@
+<div class="gradient-ball"></div>
+<style>
+    .gradient-ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        /* Darkyellow orange */
+        background: radial-gradient(
+            circle at 35% 35%,
+            #ffd66e,
+            #f5a623 40%,
+            #d36b1f 75%
+        );
+        
+        /* Dark navy blue */
+        /* background: radial-gradient(
+            circle at 35% 35%,
+            #3d4f9f,
+            #1b265f 40%,
+            #0a0f3d 75%
+        ); */
+        box-shadow:
+            0 0 40px rgba(255, 200, 50, 0.4),
+            -10px 20px 30px rgba(0, 0, 0, 0.15);
+        animation: floatBall 4s ease-in-out infinite;
+        filter: blur(2px);
+    }
+
+    /* Floating animation */
+    @keyframes floatBall {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-12px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>

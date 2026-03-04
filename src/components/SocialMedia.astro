@@ -1,0 +1,122 @@
+---
+import TwitterImage from "../assets/svg/x.svg";
+import LinkedinImage from "../assets/svg/linkedin.svg";
+import InstagramImage from "../assets/svg/instagram.svg";
+import FacebookImage from "../assets/svg/facebook.svg";
+---
+
+<!-- For desktop -->
+<div class="social-sidebar d-flex flex-column gap-2 hidden md:block">
+    <div class="icons-wrapper">
+        <a
+            href="https://x.com/lazy_pickaxe"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-2 rounded shadow-sm bg-white mb-2 border-[2px] border-[#f7d243]"
+        >
+            <img
+                src={TwitterImage.src}
+                alt="Twitter"
+                class="max-w-full drop-shadow-xl svg-icon"
+            />
+        </a>
+        <a
+            href="https://www.linkedin.com/showcase/lazypickaxe/"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-2 rounded shadow-sm bg-white mb-2 border-[2px] border-[#f7d243]"
+        >
+            <img
+                src={LinkedinImage.src}
+                alt="LinkedIn"
+                class="max-w-full drop-shadow-xl svg-icon"
+            />
+        </a>
+        <a
+            href="https://www.instagram.com/lazy_pickaxe/"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-2 rounded shadow-sm bg-white mb-2 border-[2px] border-[#f7d243]"
+        >
+            <img
+                src={InstagramImage.src}
+                alt="Instagram"
+                class="max-w-full drop-shadow-xl svg-icon"
+            />
+        </a>
+        <a
+            href="https://www.facebook.com/profile.php?id=61581566575845"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-2 rounded shadow-sm bg-white mb-2 border-[2px] border-[#f7d243]"
+        >
+            <img
+                src={FacebookImage.src}
+                alt="Facebook"
+                class="max-w-full drop-shadow-xl svg-icon"
+            />
+        </a>
+    </div>
+</div>
+
+<!-- For mobile view -->
+<div
+    class="md:hidden fixed right-5 bottom-[75px] z-50 flex flex-col items-end gap-3"
+>
+    <div
+        id="fabIcons"
+        class="flex flex-col gap-3 opacity-0 pointer-events-none transform translate-y-5 transition-all duration-300"
+    >
+        <a
+            href="https://x.com/lazy_pickaxe"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-3 rounded-full shadow-sm bg-white border-[2px] border-[#f7d243]"
+        >
+            <img src={TwitterImage.src} class="w-5 h-5" alt="Twitter" />
+        </a>
+
+        <a
+            href="https://www.linkedin.com/showcase/lazypickaxe/"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-3 rounded-full shadow-sm bg-white border-[2px] border-[#f7d243]"
+        >
+            <img src={LinkedinImage.src} class="w-5 h-5" alt="LinkedIn" />
+        </a>
+
+        <a
+            href="https://www.instagram.com/lazy_pickaxe/"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-3 rounded-full shadow-sm bg-white border-[2px] border-[#f7d243]"
+        >
+            <img src={InstagramImage.src} class="w-5 h-5" alt="Instagram" />
+        </a>
+
+        <a
+            href="https://www.facebook.com/profile.php?id=61581566575845"
+            target="_blank"
+            class="social-icon flex items-center justify-center p-3 rounded-full shadow-sm bg-white border-[2px] border-[#f7d243]"
+        >
+            <img src={FacebookImage.src} class="w-5 h-5" alt="Facebook" />
+        </a>
+    </div>
+
+    <!-- Main FAB Button -->
+    <button
+        id="fabBtn"
+        class="btn btn-circle bg-[#f7d243] text-black shadow-xl hover:scale-110 transition-all w-[45px] h-[45px]"
+    >
+        +
+    </button>
+</div>
+
+<script>
+    const fabBtn = document.getElementById("fabBtn");
+    const fabIcons = document.getElementById("fabIcons");
+
+    if (fabBtn && fabIcons) {
+        fabBtn.addEventListener("click", () => {
+            fabIcons.classList.toggle("opacity-0");
+            fabIcons.classList.toggle("pointer-events-none");
+            fabIcons.classList.toggle("translate-y-5");
+
+            // Rotate main button
+            fabBtn.classList.toggle("rotate-45");
+        });
+    }
+</script>

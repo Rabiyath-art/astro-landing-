@@ -1,0 +1,148 @@
+.hero-image img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+}
+
+.prose h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    /* margin-top: 3rem; */
+    margin-bottom: 1rem;
+}
+
+.prose h2 {
+    background: white;
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-left: 5px solid #0a0f3d;
+    padding: 0 10px;
+}
+
+.prose h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    /* margin-top: 2rem; */
+    margin-bottom: 0.75rem;
+}
+
+.prose p {
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+}
+
+.prose ul,
+.prose ol {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.prose ul li,
+.prose ol li {
+    position: relative;
+    padding-left: 50px;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose ul li::before,
+.prose ol li::before {
+    content: "";
+    position: absolute;
+    left: 2rem;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    background-color: #0026a3;
+    border-radius: 50%;
+}
+
+
+blockquote {
+    background: #cff4fc;
+    padding: 15px;
+    font-style: italic;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+}
+
+blockquote p {
+    margin-bottom: 0 !important;
+}
+
+hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid rgb(59, 59, 59);
+}
+
+.prose p>.btn:only-child,
+.prose>.btn {
+    /* display: inline-flex; */
+    /* align-items: center;
+    justify-content: center; */
+    padding: 24px 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0c1670;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px rgba(12, 22, 112, 0.35);
+    transition: all 0.25s ease;
+}
+
+.prose p>.btn:only-child:hover,
+.prose>.btn:hover {
+    background-color: #0a0f3d;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px rgba(12, 22, 112, 0.5);
+}
+
+.prose p>.btn:only-child:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(12, 22, 112, 0.4);
+}
+
+/* For table design */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+table,
+td,
+th {
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.table-of-contents {
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+@media (max-width: 768px) {
+    .prose h1 {
+        font-size: 1.5rem;
+    }
+
+    .prose h2 {
+        font-size: 1.2rem;
+    }
+
+    .prose h3 {
+        font-size: 1.3rem;
+    }
+}
